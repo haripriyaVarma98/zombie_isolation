@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src=""></script>
+  <style>
+      /* Below line is used for online Google font */
+  @import url(http://fonts.googleapis.com/css?family=Raleway);
+  h2{
+  background-color: rgb(240, 244, 250);
+  padding: 30px 35px;
+  margin: -5px -10px;
+  text-align:center;
+  border-radius: 10px 10px 0 0;
+  }
+  hr{
+  margin: 10px -50px;
+  border: 0;
+  border-top: 1px solid rgb(204, 204, 204);
+  margin-bottom: 40px;
+  }
+  div.container{
+  width: 900px;
+  height: 610px;
+  margin:35px auto;
+  font-family: 'Comic Sans MS', sans-serif;
+  }
+  div.main{
+  width: 700px;
+  height: 450px;
+  padding: 10px 50px 25px;
+  border: 2px solid gray;
+  border-radius: 10px;
+  font-family: raleway;
+  float:center;
+  margin-top:50px;
+  }
+  div.valid{
+	border: 1px;
+	font-size:10px;
+	color: red;
+	margin-bottom: 15px;
+	}
+	
+  input[type=text],input[type=password]{
+  width: 98%;
+  height: 25px;
+  padding: 5px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  border: 2px solid rgb(204, 204, 204);
+  color: #4f4f4f;
+  font-size: 16px;
+  border-radius: 5px;
+  }
+  label{
+  color: #464646;
+  text-shadow: 0 1px 0 rgb(255, 255, 255);
+  font-size: 14px;
+  font-weight: bold;
+  }
+  center{
+  font-size:32px;
+  }
+  input[type=button]{
+  font-size: 16px;
+  background: linear-gradient(#0d3f6d 5%, #3779b8 100%);
+  border: 1px solid #0d275e;
+  color: rgb(239, 240, 243);
+  font-weight: bold;
+  cursor: pointer;
+  width: 50%;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  margin-top: 25px;
+  padding: 10px 0;
+  margin-left: 175px;
+  outline:none;
+  }
+  input[type=button]:hover{
+  background: linear-gradient(#3779b8 5%, #0d3f6d 100%);
+  }
+  </style>
+  </head>
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>	
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.js"></script>
+
+  <body>
+      <div id="messageBox"></div>
+  <div class="container">
+  <div class="main">
+  <h2> Node Registration</h2>
+  <form id="form_id" method="post" name="myform">
+  <label>Enter IP address :</label>
+  <input type="text" name="ip" id="ip"/>
+  <div class="valid" id="ip_err" ></div>
+  <label>Enter Password :</label>
+  <input type="password" name="password" id="password"/>
+  <div class="valid" id="pwd_err" ></div>
+  <label>Confirm Password :</label>
+  <div class="valid" id="conf_err" ></div>
+  <input type="password" name="password" id="confirm"/>
+  <input type="button" value="Submit" id="submit" />
+  
+  </form>
+  </div>
+  </div>
+  
+  <script>
+      		$(document).ready(function() {
+                $(document).ready(function() {
+                    $('#submit').click(function(){
+				var ipadr = $('#ip').val();
+                var pwd = $('#password').val();
+                var conf = $('#confirm').val();
+				if (ipadr == "" ) {
+					$('#ip_err').html('*The field is required');
+					$('#ip_err').css('color','red');
+					
+                }
+                else if (pwd == "") {
+                    $('#pwd_err').html('*The field is required');
+					$('#pwd_err').css('color','red');
+                } 
+                else if(conf == ""){
+                    $('#conf_err').html('*The field is required');
+					$('#conf_err').css('color','red');
+                }
+                else if(pwd!=conf){
+                    alert("Password does not match!");
+                }
+				else{	
+					alert("IP address :"+ ipadr);
+				}
+			});
+		 });
+              });
+  </script>
+</body>
+</html>
